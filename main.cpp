@@ -15,7 +15,7 @@ int main() {
 
   /*
 
-  APPLICATION:
+  IMPLEMENTATION:
     Make a class named ROM 
     Get "bootstrap loader" from class
     Bootstrap loader will contain the address of the "kernel"
@@ -33,7 +33,7 @@ int main() {
 
   /*
 
-  APPLICATION:
+  IMPLEMENTATION:
   I've had a couple of ideas, but the one that made most sense to me is to look for 2 .txt files
   one is for usernames and the other is for passwords.
 
