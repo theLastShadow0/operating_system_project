@@ -1,4 +1,6 @@
-# Operating Systems Project Description:
+# Team Members: Andres Lopez & Jair Acosta
+Operating Systems Project Description:
+
 Throughout the course the team will be working on developing a functional Operating System.
 
 Assignment 1:
