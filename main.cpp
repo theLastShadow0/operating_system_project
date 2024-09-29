@@ -22,7 +22,9 @@ int main() {
     Kernel "loads" (simulate that it loaded) and system is "running"
   
   */
+cout << "Welcome to TAMIU OS" << endl; 
 
+  
   //LOGIN AUTHENTICATION
   //
   //Like any other computer, it would require a username and password
@@ -46,7 +48,72 @@ int main() {
   
   */
 
+  //For the system login is it simply asking for a username and password from the user.
+  //It does not check if there is an account in the system/ Doesnt save accounts.
+    int loginChoice;
+    string userName;
+    string passWord;
+    
+    cout << "Press '1' to login to an existing account" << endl;
+    cout << "Press '2' to create a new account" << endl;
+    cout << "Press '0' to turn shut down" << endl;
+    cin >> loginChoice;
+
+
+    switch(loginChoice){
+    case 0:
+        cout << "Shutting down..." << endl;
+        return 0;
+    case 1:
+        cout << "Username: " << endl;
+        cin >> userName;
+        cout << "Password: " << endl;
+        cin >> passWord;
+        cout << "Welcome back " << userName << endl;
+        break;
+    case 2:
+        cout << "New Username: " << endl;
+        cin >> userName;
+        cout << "New Password: " << endl;
+        cin >> passWord;
+        cout << "Welcome " << userName << endl;
+        break;
+    }
+    
   //PROCESS CREATION AND TERMINATION
-  
-  return 0;
+  //
+  //For the process creation I made a menu where the user can choose what program they want to execute.
+  //The menu will keep on looping until the user decides to end the program by signing out.
+  //Work is needed so the user can run a program and decide to end that program and go back to the menu.
+  //
+
+    int choice;
+    do{
+        cout << "Please choose a program to execute on your OS: " << endl;
+        cout << " Press '1' to run Google Chrome" << endl;
+        cout << " Press '2' to run Microsoft Word" << endl;
+        cout << " Press '3' to run File Explorer" << endl;
+        cout << " Press '4' to run Microsoft PowerPoint" << endl;
+        cout << " Press '0' to sign out " << endl;
+        cin >> choice;
+        
+        switch(choice){
+            case 0:
+                cout << "Signing out...\n" << endl;
+                return main();
+            case 1:
+                cout << "Running Google Chrome..." << endl;
+                break;
+            case 2:
+                cout << "Running Microsoft Word" << endl;
+                break;
+            case 3:
+                cout << "Running File Explorer" << endl;
+                break;
+            case 4:
+                cout << "Running Microsoft PowerPoint" << endl;
+                break;
+        }
+    }while (choice != 0);
+    return 0;
 }
