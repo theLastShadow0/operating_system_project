@@ -87,7 +87,7 @@ cout << "Welcome to TAMIU OS" << endl;
   //Work is needed so the user can run a program and decide to end that program and go back to the menu.
   //
 
-    int choice;
+    int menuChoice;
     do{
         cout << "Please choose a program to execute on your OS: " << endl;
         cout << " Press '1' to run Google Chrome" << endl;
@@ -95,9 +95,9 @@ cout << "Welcome to TAMIU OS" << endl;
         cout << " Press '3' to run File Explorer" << endl;
         cout << " Press '4' to run Microsoft PowerPoint" << endl;
         cout << " Press '0' to sign out " << endl;
-        cin >> choice;
+        cin >> menuChoice;
         
-        switch(choice){
+        switch(menuChoice){
             case 0:
                 cout << "Signing out...\n" << endl;
                 return main();
@@ -114,6 +114,6 @@ cout << "Welcome to TAMIU OS" << endl;
                 cout << "Running Microsoft PowerPoint" << endl;
                 break;
         }
-    }while (choice != 0);
+    }while (menuChoice != 0);
     return 0;
 }
