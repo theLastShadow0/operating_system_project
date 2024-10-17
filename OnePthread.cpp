@@ -31,7 +31,9 @@ double percentage(int size, Student array[]) {
 	return ((passed / size) * 100);
 
 }
-
+//Returns a pointer of void type.
+//It prevents retrictions for the function.
+//Returns the results of the threads execution.
 void *func(void * arg){
     
     int const size = 6;
@@ -75,15 +77,20 @@ void *func(void * arg){
 	}
 	
 	pthread_exit(NULL);
+	//terminates the thread
 }
 
 int main() {
 
 	pthread_t ptid;
+	//stores the id of the thread
 	
 	pthread_create(&ptid, NULL, &func, NULL);
+	//creates a new thread
+	//&ptid points to the pthread_t variable where the new thread will be stored.
 	
 	pthread_join(ptid, NULL);
+	//waits for the thread to finish executing
 	
 	pthread_exit(NULL);
 
