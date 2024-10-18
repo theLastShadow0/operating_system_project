@@ -8,7 +8,7 @@
 
 using namespace std;
 
-//opening .txt file loll
+//opening .txt file lollol
 ifstream MyReadFile("filename.txt");
 
 //struct for students
