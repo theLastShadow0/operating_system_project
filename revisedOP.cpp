@@ -323,6 +323,10 @@ void menu() {
     vector<Process> vec; //vector to store the processes opened. Used because it is easier to remove elements
 
     do {
+        
+        bool found = false;
+
+        
         cout << "Please choose a program to execute on your OS: " << endl;
         cout << " Press '1' to run Google Chrome" << endl;
         cout << " Press '2' to run Microsoft Word" << endl;
@@ -342,6 +346,7 @@ void menu() {
 
 
         case 1:
+        
             if (vec.size() == 0) {
 
                 Google.name = "Google";
@@ -364,18 +369,52 @@ void menu() {
                 for (int j = 0; j < vec.size(); j++) {
 
                     if(vec[j].name == "Google"){
-                        cout << "Google already exists, \n";
-                        cout << "would you like to replace (0) \n";
-                        cout << "Do nothing (1) \n";
-                        cout << "Or terminate Process (2) \n";
                         
-                        cin >> choice;
+                        found = true;
+                
+                    }
+
+                }
+                
+                if(found){
+                    cout << "Google already exists, \n";
+                    cout << "would you like to replace (0) \n";
+                    cout << "Do nothing (1) \n";
+                    cout << "Or terminate Process (2) \n";
+                    
+                    cin >> choice;
+                    
+                    switch(choice){
                         
-                        switch(choice){
+                        case 0:
+                        
+                        for (int i = 0; i < vec.size(); i++) {
+                            if (vec[i].name == "Google") {
+                                //used to iterate and set the index of the number wanted to be found
+                                //then .erase() to erase the element
+                                //without this and typing vec.erase(i) causes overloading problem/bug
+                                vector<Process>::iterator it = vec.begin(); 
+                                advance(it, i);
+                                vec.erase(it);
+                            }
+                        }   
+                        
+                        Google.id = distr1(gen);
+                        
+                        Google.state = "ready";
+        
+                        Google.cpuBurst = distr2(gen);
+                        
+                        vec.push_back(Google);
+                        
+                        break;
                             
-                            case 0:
-                            
-                            for (int i = 0; i < vec.size(); i++) {
+                        case 1:
+                        break;
+                        
+                        case 2:
+                        
+                        for (int i = 0; i < vec.size(); i++) {
                                 if (vec[i].name == "Google") {
                                     //used to iterate and set the index of the number wanted to be found
                                     //then .erase() to erase the element
@@ -385,47 +424,32 @@ void menu() {
                                     vec.erase(it);
                                 }
                             }   
-                            
-                            Google.id = distr1(gen);
-                            
-                            cout << Google.id << endl;
-                
-                            Google.state = "ready";
-            
-                            Google.cpuBurst = distr2(gen);
-                            
-                            cout << Google.cpuBurst << endl;
-                            
-                            vec.push_back(Google);
-                            
-                            break;
-                                
-                            case 1:
-                            break;
-                            
-                            case 2:
-                            
-                            for (int i = 0; i < vec.size(); i++) {
-                                    if (vec[i].name == "Google") {
-                                        //used to iterate and set the index of the number wanted to be found
-                                        //then .erase() to erase the element
-                                        //without this and typing vec.erase(i) causes overloading problem/bug
-                                        vector<Process>::iterator it = vec.begin(); 
-                                        advance(it, i);
-                                        vec.erase(it);
-                                    }
-                                }   
-                            break;
-                            
-                        }
+                        break;
+                        
                     }
+                }
+                else{
+                    
+                    Google.name = "Google";
 
+                    Google.id = distr1(gen);
+                    
+                    Google.state = "ready";
+    
+                    Google.cpuBurst = distr2(gen);
+                    
+                    vec.push_back(Google);
+                    
                 }
                 
             }
+            
+            
 
             break;
         case 2:
+        
+        
             if (vec.size() == 0) {
 
                 Word.name = "Microsoft Word";
@@ -444,6 +468,15 @@ void menu() {
                 for (int j = 0; j < vec.size(); j++) {
 
                     if(vec[j].name == "Microsoft Word"){
+                        
+                        found = true;
+                        
+                    }
+                    
+                }
+                
+                if(found){
+                    
                         cout << "Microsoft Word already exists, \n";
                         cout << "would you like to replace (0) \n";
                         cout << "Do nothing (1) \n";
@@ -495,13 +528,25 @@ void menu() {
                             
                         }
                     }
-
-                }
+                    else{
+                        
+                        Word.name = "Microsoft Word";
+                        
+                        Word.id = distr1(gen);
+                
+                        Word.state = "ready";
+        
+                        Word.cpuBurst = distr2(gen);
+                        
+                        vec.push_back(Word);
+                    }
                 
             }
 
             break;
         case 3:
+        
+
             if (vec.size() == 0) {
 
                 File.name = "File Explorer";
@@ -521,6 +566,15 @@ void menu() {
                 for (int j = 0; j < vec.size(); j++) {
 
                     if(vec[j].name == "File Explorer"){
+                        
+                        found = true;
+                        
+                    }
+                    
+
+                }
+                
+                if(found){   
                         cout << "File Explorer already exists, \n";
                         cout << "would you like to replace (0) \n";
                         cout << "Do nothing (1) \n";
@@ -572,13 +626,25 @@ void menu() {
                             
                         }
                     }
-
-                }
+                    else{
+                        
+                        File.name = "File Explorer";
+                        
+                        File.id = distr1(gen);
+                
+                        File.state = "ready";
+        
+                        File.cpuBurst = distr2(gen);
+                        
+                        vec.push_back(File);
+                        
+                    }
                 
             }
 
             break;
         case 4:
+        
             if (vec.size() == 0) {
 
                 PowerPoint.name = "Microsoft PowerPoint";
@@ -598,6 +664,15 @@ void menu() {
                 for (int j = 0; j < vec.size(); j++) {
 
                     if(vec[j].name == "Microsoft PowerPoint"){
+                        
+                        found = true;
+                        
+                    }
+                    
+
+                }
+                
+                if(found){
                         cout << "Microsoft PowerPoint already exists, \n";
                         cout << "would you like to replace (0) \n";
                         cout << "Do nothing (1) \n";
@@ -649,8 +724,19 @@ void menu() {
                             
                         }
                     }
-
-                }
+                    else{
+                        
+                        PowerPoint.name = "Microsoft PowerPoint";
+                        
+                        PowerPoint.id = distr1(gen);
+                
+                        PowerPoint.state = "ready";
+        
+                        PowerPoint.cpuBurst = distr2(gen);
+                        
+                        vec.push_back(PowerPoint);
+                        
+                    }
                 
             }
             break;
@@ -666,14 +752,13 @@ void menu() {
                 cout << "No Processes are open at this moment." << endl;
             }
             else {
-                cout << "Process:                     State:" << endl;
+                cout << "Process Name:\t\tProcess ID:\t\tState:\t\tCPU Burst:" << endl;
 
 
 
                 for (int j = 0; j < vec.size(); j++) {
 
-                    cout << vec[j].name << endl;
-                    cout << vec[j].cpuBurst << endl;
+                    cout << vec[j].name << "\t\t\t" << vec[j].id << "\t\t\t" << vec[j].state << "\t\t\t" << vec[j].cpuBurst << endl << endl;
 
                 }
 
@@ -683,29 +768,57 @@ void menu() {
 
 
 
-
+        bool running = false;
+        
         counter++;
 
         for (int k = 0; k < vec.size(); k++) {
 
-
-            if(vec[k].cpuBurst == 0){
-                if(vec[k].state == "running"){
-                    vec[k].state = "waiting";
-                    
-                    if(!(k+1 >= vec.size())){
-                        vec[k+1].state = "running";
-                    }
-                    
-                }
+            if(vec[k].state == "running"){
+                running = true;
             }
-            else{
-                if(vec[k].state == "running"){
-                    vec[k].cpuBurst = vec[k].cpuBurst - 1;
-                }
-            }
+            
 
         }
+        
+        
+            for(int l = 0; l < vec.size(); l++){
+                
+                if(vec[l].cpuBurst == 0){
+                    if(vec[l].state == "running"){
+                        vec[l].state = "waiting";
+                        
+                        if(!(l+1 >= vec.size())){
+                            vec[l+1].state = "running";
+                        }
+                        
+                    }
+                    else if(vec[l].state == "waiting"){
+                        
+                        if(!(l+1 >= vec.size())){
+                            if(vec[l+1].state == "ready"){
+                                vec[l+1].state = "running";
+                            }
+                        }
+                        
+                    }
+                }
+                else{
+                    if(vec[l].state == "running"){
+                        vec[l].cpuBurst = vec[l].cpuBurst - 1;
+                        if(vec[l].cpuBurst == 0){
+                            vec[l].state = "waiting";
+                            
+                            if(!(l+1 >= vec.size())){
+                                vec[l+1].state = "running";
+                            }
+                        }
+                    }
+                }
+                
+            }
+            
+        
 
 
 
