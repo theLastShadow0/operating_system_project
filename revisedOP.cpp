@@ -346,20 +346,20 @@ void menu() {
 
 
         case 1:
-        
+
             if (vec.size() == 0) {
 
                 Google.name = "Google";
 
                 Google.id = distr1(gen);
                 
-                cout << Google.id << endl;
+                cout <<"Google's Process ID is: "<< Google.id << endl;
 
                 Google.state = "running";
 
                 Google.cpuBurst = distr2(gen);
                 
-                cout << Google.cpuBurst << endl;
+                cout <<"Process burst time: " << Google.cpuBurst <<" cycle/s"<< endl;
 
                 vec.push_back(Google);
 
@@ -433,10 +433,14 @@ void menu() {
                     Google.name = "Google";
 
                     Google.id = distr1(gen);
+
+                    cout <<"Google's Process ID is: "<< Google.id << endl;
                     
                     Google.state = "ready";
     
                     Google.cpuBurst = distr2(gen);
+
+                    cout <<"Process burst time: " << Google.cpuBurst <<" cycle/s"<< endl;
                     
                     vec.push_back(Google);
                     
@@ -456,9 +460,13 @@ void menu() {
 
                 Word.id = distr1(gen);
 
+                cout <<"Word's Process ID is: "<< Word.id << endl;
+
                 Word.state = "running";
 
                 Word.cpuBurst = distr2(gen);
+
+                cout <<"Process burst time: " << Word.cpuBurst <<" cycle/s"<< endl;
 
                 vec.push_back(Word);
 
@@ -533,10 +541,14 @@ void menu() {
                         Word.name = "Microsoft Word";
                         
                         Word.id = distr1(gen);
+
+                        cout <<"Word's Process ID is: "<< Word.id << endl;
                 
                         Word.state = "ready";
         
                         Word.cpuBurst = distr2(gen);
+
+                        cout <<"Process burst time: " << Word.cpuBurst <<" cycle/s"<< endl;
                         
                         vec.push_back(Word);
                     }
@@ -553,9 +565,13 @@ void menu() {
 
                 File.id = distr1(gen);
 
+                cout <<"File Explorer's Process ID is: "<< File.id << endl;
+
                 File.state = "running";
 
                 File.cpuBurst = distr2(gen);
+
+                cout <<"Process burst time: " << File.cpuBurst <<" cycle/s"<< endl;
 
                 vec.push_back(File);
 
@@ -631,10 +647,14 @@ void menu() {
                         File.name = "File Explorer";
                         
                         File.id = distr1(gen);
+
+                        cout <<"File Explorer's Process ID is: "<< File.id << endl;
                 
                         File.state = "ready";
         
                         File.cpuBurst = distr2(gen);
+
+                        cout <<"Process burst time: " << File.cpuBurst <<" cycle/s"<< endl;
                         
                         vec.push_back(File);
                         
@@ -651,9 +671,13 @@ void menu() {
 
                 PowerPoint.id = distr1(gen);
 
+                cout <<"PowerPoint's Process ID is: "<< PowerPoint.id << endl;
+
                 PowerPoint.state = "running";
 
                 PowerPoint.cpuBurst = distr2(gen);
+
+                cout <<"Process burst time: " << PowerPoint.cpuBurst <<" cycle/s"<< endl;
 
                 vec.push_back(PowerPoint);
 
@@ -729,10 +753,14 @@ void menu() {
                         PowerPoint.name = "Microsoft PowerPoint";
                         
                         PowerPoint.id = distr1(gen);
+
+                        cout <<"PowerPoint's Process ID is: "<< PowerPoint.id << endl;
                 
                         PowerPoint.state = "ready";
         
                         PowerPoint.cpuBurst = distr2(gen);
+
+                        cout <<"Process burst time: " << PowerPoint.cpuBurst <<" cycle/s"<< endl;
                         
                         vec.push_back(PowerPoint);
                         
