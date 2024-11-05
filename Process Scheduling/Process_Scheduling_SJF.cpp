@@ -746,10 +746,25 @@ void menu() {
                     shortest = l;
                 }
                 else if(vec[l].cpuBurst > vec[l+1].cpuBurst){
-                    shortest = l+1;
+                    vec[l].state = "ready";
+                    
+                    //checks if the value for shortest is not the default
+                    if(shortest > -1){
+                        //compares if shortest < l+1 
+                        if(vec[shortest].cpuBurst > vec[l+1].cpuBurst){
+                            //sets shortest to equal l+1
+                            shortest = l+1;
+                        }
+                    }
+                }
+                else{
+                    shortest = l;
                 }
             }
             else if(vec[shortest].cpuBurst > vec[l].cpuBurst){
+                if(shortest > -1){
+                    vec[shortest].state = "ready";
+                }
                 shortest = l;
             }
             
