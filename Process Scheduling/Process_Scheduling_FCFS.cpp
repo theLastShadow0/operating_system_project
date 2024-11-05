@@ -13,8 +13,6 @@
 
 using namespace std;
 
-//ifstream MyReadFile("filename.txt");
-
 ifstream inProfile("users.txt");
 ofstream outProfile("users.txt", ios::app);
 
@@ -28,9 +26,6 @@ uniform_int_distribution<> distr1(1000,9999);
 
 uniform_int_distribution<> distr2(1,10);
 
-//int random_number = distr1(gen);
-
-
 
 struct Process {
 
@@ -41,69 +36,6 @@ struct Process {
 
 };
 
-/*
-double percentage(int size, Student array[]) {
-
-	double passed = 0;
-
-	for (int i = 0; i < size; i++) {
-		if (array[i].result == 1) {
-			passed++;
-		}
-	}
-
-	return ((passed / size) * 100);
-
-}
-//Returns a pointer of void type.
-//It prevents retrictions for the function.
-//Returns the results of the threads execution.
-void *func(void * arg){
-
-    int const size = 6;
-
-	Student arr[size];
-
-	string myText;
-
-
-	if (!MyReadFile.is_open()) {
-
-		cout << "ERROR FILE DID NOT OPEN" << endl;
-
-	}
-	else {
-
-		int i = 0;
-
-		while (!MyReadFile.eof()) {
-			getline(MyReadFile, myText, ' ');
-			//cout << myText << endl;
-
-			stringstream(myText) >> arr[i].id;
-
-			getline(MyReadFile, myText, '\n');
-			//cout << myText << endl;
-
-			stringstream(myText) >> arr[i].result;
-
-			i++;
-		}
-
-		for (int i = 0; i < size; i++) {
-			cout << arr[i].id << " " << arr[i].result << endl;
-		}
-
-		double per = percentage(size, arr);
-
-		cout << "Percentage of students who passed: " << setprecision(3) << per << "%" << endl;
-
-	}
-
-	pthread_exit(NULL);
-	//terminates the thread
-}
-*/
 void createUser();
 void Login();
 void menu();
@@ -136,18 +68,20 @@ void Welcome() {
 		exit(0);
 
 	case 1:
-		Login();
+		//Login();
+		menu();
 		break;
 
 	case 2:
-		createUser();
+		//createUser();
+		menu();
 		break;
 
 	}
 
 
 }
-
+/*
 void Login() {
 
 	bool found;
@@ -289,13 +223,13 @@ void createUser() {
 
 
 }
-
+*/
 void menu() {
 
     //exist is set to 0 for if statements to check if they are "running",
     //but by doing so can't add more than one of the same process
 
-	cout << "Welcome " << userUsername << endl;
+	cout << "Welcome " << "insert_username" << endl;
 
 
     int counter = 0;
@@ -862,35 +796,8 @@ void menu() {
 
 int main() {
 
-	//cout << "random number " << random_number << endl;
-
-
 	Welcome();
-/*
-	if(logged) {
 
-		menu();
-
-	}
-	*/
-
-
-	/*
-
-	pthread_t ptid;
-	//stores the id of the thread
-
-	pthread_create(&ptid, NULL, &func, NULL);
-	//creates a new thread
-	//&ptid points to the pthread_t variable where the new thread will be stored.
-
-	pthread_join(ptid, NULL);
-	//waits for the thread to finish executing
-
-	pthread_exit(NULL);
-
-	*/
-	//MyReadFile.close();
 	inProfile.close();
 	outProfile.close();
 
