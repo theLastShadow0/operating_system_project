@@ -746,7 +746,7 @@ void menu() {
             }
 
             //Checks the next process if its in the "waiting" state
-            //sets the current process as shorest burst
+            //sets the current process as shortest burst
             //compares the cpu bursts of both processes
             else if(!(l+1 >= vec.size())){
                 if(vec[l+1].state == "waiting"){
