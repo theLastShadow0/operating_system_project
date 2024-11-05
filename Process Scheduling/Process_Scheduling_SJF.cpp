@@ -738,9 +738,16 @@ void menu() {
         //checks for the shortest cpu burst
         for(int l = 0; l < vec.size(); l++){
             
+
+            //checks if current process is in the "waiting" state
+            //if its true, it will continue decreasing the burst time of the current process
             if(vec[l].state == "waiting"){
                 continue;
             }
+
+            //Checks the next process if its in the "waiting" state
+            //sets the current process as shorest burst
+            //compares the cpu bursts of both processes
             else if(!(l+1 >= vec.size())){
                 if(vec[l+1].state == "waiting"){
                     shortest = l;
