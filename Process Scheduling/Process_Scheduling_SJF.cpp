@@ -82,6 +82,9 @@ void Welcome() {
 
 }
 
+//Commented the login authetication for faster access to the Menu
+//Will be brought back in the final product
+
 /*
 void Login() {
 
