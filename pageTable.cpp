@@ -5,6 +5,8 @@
 
 using namespace std;
 
+int pageSize = 4096;
+
 class logicalMemory {
 public:
     string name; // Program name
@@ -24,7 +26,7 @@ private:
 public: //constructor
 
     void addProgram(const string& name, int virtualAddress, int frameNumber){
-        int pageNumber = virtualAddress / 4096; 
+        int pageNumber = virtualAddress / pageSize; 
         
         pageTable[pageNumber] = frameNumber;
         logicalTable[name] = logicalMemory(name, virtualAddress);
@@ -47,7 +49,7 @@ public: //constructor
     void displayLogicalTable() const {
         for (const auto& entry: logicalTable){
 
-            int physicalAddress = translate(entry.second.virtualAddress, 4096);
+            int physicalAddress = translate(entry.second.virtualAddress, pageSize);
             cout<< entry.second.name << " has a virtual address of 0x" << hex << entry.second.virtualAddress<< " and got translated to physical address " << "0x" << hex << physicalAddress << endl;
         }
     }
