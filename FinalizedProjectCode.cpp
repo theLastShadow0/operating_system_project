@@ -72,7 +72,7 @@ public: //constructor
         for (const auto& entry: logicalTable){
 
             int physicalAddress = translate(entry.second.virtualAddress, pageSize);
-            cout<< entry.second.name << " has a virtual address of 0x" << hex << entry.second.virtualAddress
+            cout<< entry.second.name << " has a virtual address of 0x" << hex << uppercase << entry.second.virtualAddress
             << " and got translated to physical address " << "0x" << hex << physicalAddress << dec << endl << endl;
         }
     }
